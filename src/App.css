@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply bg-black text-gray-100;
+  /* background-color: #111827; */
+  /* background: #0c0c0d; */
+  /* color: #f3f4f6; */
+  color-scheme: dark;
+}
+
+body {
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+a {
+  @apply text-blue-400 hover:text-blue-300;
+}
