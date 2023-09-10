@@ -167,7 +167,7 @@ function App() {
           <Projects projects={[
             {
               title: "vehbi.me",
-              description: "My personal website, built with Next.js and TailwindCSS.",
+              description: "My personal website, built with React.js and TailwindCSS.",
               url: "https://vehbi.me",
               gh: "https://github.com/vehbiu/website"
             }, {
