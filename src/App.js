@@ -5,7 +5,7 @@ import ItemList from "components/ItemList";
 const navbar = [
   { name: "GitHub", url: "https://github.com/vehbiu" },
   { name: "Twitter", url: "https://twitter.com/vuenha" },
-  { name: "Website", url: "https://vehbiu.com" },
+  { name: "Website", url: "https://vehbi.me" },
 ];
 
 
@@ -166,10 +166,10 @@ function App() {
           {/* Projects */}
           <Projects projects={[
             {
-              title: "vehbiu.com",
+              title: "vehbi.me",
               description: "My personal website, built with Next.js and TailwindCSS.",
-              url: "https://vehbiu.com",
-              gh: "https://github.com/vehbiu/vehbiu.com"
+              url: "https://vehbi.me",
+              gh: "https://github.com/vehbiu/website"
             }, {
               title: "Food Tracker",
               description: "A very simple website to keep tracke of food recipes.",
