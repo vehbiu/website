@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio Website
 
-## Getting Started
+![NextJs](https://img.shields.io/badge/Next-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
-First, run the development server:
+A modern, animated portfolio website built with React, TypeScript, and TailwindCSS. This project showcases my skills, projects, and professional journey as a developer.
 
+## 🌟 Features
+
+- **Responsive Design**: Looks great on all devices
+- **Smooth Animations**: Powered by Framer Motion
+- **Interactive UI**: Dynamic elements that respond to user actions
+- **Type-Safe**: Built with TypeScript for robust code
+- **Modern Styling**: Utilizes TailwindCSS for a clean, modern look
+
+## 🚀 Demo
+
+Visit the live website at [vehbi.me](https://vehbi.me)
+
+<!-- ![Website Preview](https://via.placeholder.com/800x400.png?text=Portfolio+Preview) -->
+
+## 🛠️ Technologies Used
+
+- React (via NextJS)
+- TypeScript
+- TailwindCSS
+- Framer Motion
+- Lucide Icons
+
+## ⚙️ Installation
+
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/vehbiu/website.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+src/
+├── components/
+│   ├── item-list.tsx    # Reusable component for listing skills
+│   └── project-list.tsx # Component for displaying projects
+├── App.tsx              # Main application component
+└── ...
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Customization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adding New Projects
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To add a new project, modify the `projects` array in `page/app.tsx`:
 
-## Deploy on Vercel
+```typescript
+const newProject = {
+  title: "Project Name",
+  description: "Project description goes here",
+  url: "https://project-url.com",
+  gh: "https://github.com/username/project"
+};
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Updating Skills / Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Modify the `techStack` array in the `page/app.tsx`:
+
+```typescript
+const newSkill = {
+  name: "Skill Name",
+  url: "https://skill-documentation-url.com"
+};
+```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/vehbiu/website/issues).
+
+## 👤 Author
+
+**Vehbi**
+
+- Website: [vehbi.me](https://vehbi.me)
+- GitHub: [@vehbiu](https://github.com/vehbiu)
+
+## 🙏 Acknowledgments
+
+- Icons provided by [Lucide](https://lucide.dev/)
+- Animation library: [Framer Motion](https://www.framer.com/motion/)
+
+## 📊 Stats
+
+![GitHub stars](https://img.shields.io/github/stars/vehbiu/website?style=social)
+![GitHub forks](https://img.shields.io/github/forks/vehbiu/website?style=social)
+
+---
+
+Made with ❤️ by [@vehbiu](https://github.com/vehbiu)
