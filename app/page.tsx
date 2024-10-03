@@ -196,7 +196,7 @@ function App() {
         >
           👋
         </MotionSpan>
-        {" "}Hey, I'm <span className="text-blue-400">@</span>
+        {" "}Hey, I&apos;m <span className="text-blue-400">@</span>
         <MotionA
           href="https://github.com/vehbiu/"
           className="underline"
@@ -216,7 +216,7 @@ function App() {
           className="text-gray-300 font-semibold"
           variants={itemVariants}
         >
-          I'm a fully self-taught developer and a high-school student living near Chicago.
+          I&apos;m a fully self-taught developer and a high-school student living near Chicago.
           I know a wide variety of languages and am constantly interested in learning.
         </MotionP>
 
