@@ -1,9 +1,8 @@
 // "use client";
-import Projects, { Project } from "@/components/project-list";
+import Projects from "@/components/project-list";
 import ItemList from "@/components/item-list";
 import { Github, Globe } from 'lucide-react';
 import { MotionA, MotionDiv, MotionH1, MotionH2, MotionHr, MotionImg, MotionP, MotionSpan } from '@/components/motion';
-import { useState } from "react";
 
 const navbar = [
   { name: "GitHub", url: "https://github.com/vehbiu", icon: Github },

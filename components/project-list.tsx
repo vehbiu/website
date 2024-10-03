@@ -1,4 +1,6 @@
 "use client";
+import { Repository } from "@/lib/types";
+/* eslint-disable */
 
 import { StarIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -78,15 +80,17 @@ export default function Projects() {
             .then((res) => res.json())
             .then((data) => {
                 /* Sort by Stars */
-                data.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
+                data.sort((a: Repository, b: Repository) => b.stargazers_count - a.stargazers_count);
                 /* Prefer Descriptions starting w/ Emojis */
-                data.sort((a: any, b: any) => {
-                    if (isEmoji(a.description.slice(0, 2)) && !isEmoji(b.description.slice(0, 2))) return -1;
-                    if (!isEmoji(a.description.slice(0, 2)) && isEmoji(b.description.slice(0, 2))) return 1;
+                data.sort((a: Repository, b: Repository) => {
+                    const aDesc = (a.description || "").slice(0, 2);
+                    const bDesc = (b.description || "").slice(0, 2);
+                    if (isEmoji(aDesc) && !isEmoji(bDesc)) return -1;
+                    if (!isEmoji(aDesc) && isEmoji(bDesc)) return 1;
                     return 0;
                 });
-                data = data.filter((item: any) => (item.name !== "vehbiu" && !item.fork && !item.archived));
-                setProjects(data.map((item: any) => ({
+                data = data.filter((item: Repository) => (item.name !== "vehbiu" && !item.fork && !item.archived));
+                setProjects(data.map((item: Repository) => ({
                     title: item.name,
                     description: item.description,
                     url: item.homepage,
