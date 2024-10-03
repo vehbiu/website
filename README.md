@@ -19,7 +19,7 @@ A modern, animated portfolio website built with React, TypeScript, and TailwindC
 
 Visit the live website at [vehbi.me](https://vehbi.me)
 
-<!-- ![Website Preview](https://via.placeholder.com/800x400.png?text=Portfolio+Preview) -->
+![Website Preview](https://github.com/vehbiu/website/blob/master/.readme/preview.png)
 
 ## 🛠️ Technologies Used
 

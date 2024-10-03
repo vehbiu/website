@@ -1,8 +1,9 @@
 // "use client";
-import Projects from "@/components/project-list";
+import Projects, { Project } from "@/components/project-list";
 import ItemList from "@/components/item-list";
 import { Github, Globe } from 'lucide-react';
 import { MotionA, MotionDiv, MotionH1, MotionH2, MotionHr, MotionImg, MotionP, MotionSpan } from '@/components/motion';
+import { useState } from "react";
 
 const navbar = [
   { name: "GitHub", url: "https://github.com/vehbiu", icon: Github },
@@ -30,20 +31,6 @@ const itemVariants = {
 };
 
 function App() {
-
-  const projects = [
-    {
-      title: "vehbi.me",
-      description: "My personal website, built with React.js and TailwindCSS.",
-      url: "https://vehbi.me",
-      gh: "https://github.com/vehbiu/website"
-    }, {
-      title: "go-osint",
-      description: "A simple OSINT tool written in Go. Supports searching names, usernames, etc.",
-      gh: "https://github.com/vehbiu/go-osint"
-    }
-  ]
-
   const techStack = {
     "📕Languages": [
       { name: "Python", url: "https://python.org" },
@@ -238,7 +225,7 @@ function App() {
           ))}
 
           {/* Projects */}
-          <Projects projects={projects} />
+          <Projects />
         </MotionDiv>
       </MotionDiv>
     </MotionDiv>
