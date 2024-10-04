@@ -33,6 +33,7 @@ function App() {
   const techStack = {
     "📕Languages": [
       { name: "Python", url: "https://python.org" },
+      { name: "Go", url: "https://golang.org" },
       { name: "Java", url: "https://java.com" },
       { name: "JavaScript", url: "https://javascript.com" },
       { name: "Node.js", url: "https://nodejs.org" },
@@ -41,7 +42,7 @@ function App() {
       { name: "MySQL", url: "https://mysql.com" },
       { name: "SQLite", url: "https://sqlite.org" },
       { name: "Selenium", url: "https://selenium.dev" },
-      { name: "vLang", url: "https://vlang.io" }
+      { name: "vLang*", url: "https://vlang.io" }
     ],
     "🌐Web Development": [
       { name: "HTML", url: "https://html.com" },
@@ -211,7 +212,7 @@ function App() {
           variants={itemVariants}
         >
           I am most familiar with Python, Java, Typescript/JavaScript, and Go. I am currently interested in learning Rust! 🦀
-          I am interested in learning many languages slowly and thoroughly.
+          I prefer learning languages slowly and thoroughly.
         </MotionP>
 
         <MotionDiv

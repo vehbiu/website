@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio - Vehbi 🚀",
+  title: "🚀 My Portfolio - Vehbi",
   description: "My personal portfolio website.",
   // favicon
   icons: [
