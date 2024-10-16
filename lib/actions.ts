@@ -59,8 +59,9 @@ export async function submitContactForm(formData: { name: string; email: string;
         }
 
         return { success: true, message: "Message sent successfully" };
-    } catch (error: any) {
+    } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
         console.error("Error sending message to Discord:", error);
-        return { success: false, error: error.message };
+        return { success: false, error: errorMessage };
     }
 }
