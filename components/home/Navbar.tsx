@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,15 +16,19 @@ const Navbar = () => {
 
   return (
     <motion.nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
-      }`}
+    className={cn(
+      'fixed w-full z-50 transition-all duration-300',
+      isScrolled ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
+    )}
+      // className={`fixed w-full z-50 transition-all duration-300 ${
+      //   isScrolled ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
+      // }`}
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold">Vehbi</a>
+        <a href="#" className="text-2xl font-bold text-blue-300 transition duration-300">Vehbi</a>
         <div className="hidden md:flex space-x-8">
           {['About', 'Projects', 'Contact'].map((item) => (
             <a 

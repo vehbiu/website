@@ -37,7 +37,7 @@ const About = () => {
                 <Link
                   key={skill.name}
                   href={skill.url}
-                  className="p-3 text-center transition-all bg-gray-700 rounded-lg hover:scale-105 hover:-translate-y-1 hover:bg-gray-600 hover:shadow-lghover:text-white"
+                  className="p-3 text-center transition-all duration-200 bg-gray-700 rounded-lg hover:scale-105 hover:bg-gray-600 hover:shadow-lg"
                 >
                   {skill.name}
                 </Link>
