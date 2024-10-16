@@ -17,9 +17,8 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "My Portfolio - Vehbi",
   description: "My personal portfolio website.",
-  icons: [
-    { rel: "icon", url: "https://cdn.pixabay.com/photo/2020/12/27/20/24/smile-5865208_1280.png" }
-  ]
+  authors: [{ name: "Vehbi", url: "https://vehbi.me/" }],
+  keywords: ["portfolio", "personal", "website"],
 };
 
 export default function RootLayout({
