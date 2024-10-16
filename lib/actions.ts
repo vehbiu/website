@@ -21,7 +21,7 @@ export async function verifyCaptcha(response: string): Promise<boolean> {
         const data = await resp.json();
         console.log(data);
         return data.success;
-    } catch (error: any) {
+    } catch {
         return false;
     }
 }
