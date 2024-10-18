@@ -5,10 +5,10 @@ export default function HeroSVG() {
     return (
         <MotionSVG
             xmlns="http://www.w3.org/2000/svg"
-            className='absolute inset-0 z-0'
+            className='absolute inset-0 z-0 min-h-screen'
             viewBox="0 0 600 600"
             initial={{ opacity: 0 }}
-            animate={{ opacity: .25 }}
+            animate={{ opacity: .45 }}
             transition={{ duration: 5 }}
         >
             <defs>
