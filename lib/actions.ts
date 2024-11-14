@@ -17,14 +17,14 @@ export async function verifyCaptcha(response: string): Promise<boolean> {
         });
 
         const data = await resp.json();
-        console.log(data);
+        // console.log(data);
         return data.success;
     } catch {
         return false;
     }
 }
 
-const SUBMIT_RETRY_DELAY = 5000;
+// const SUBMIT_RETRY_DELAY = 5000;
 const SUBMIT_RETRY_AMOUNT = 3;
 
 export async function submitContactForm(formData: { name: string; email: string; message: string }, captcha: string) {
