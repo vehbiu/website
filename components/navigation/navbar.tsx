@@ -15,14 +15,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <motion.nav 
-    className={cn(
-      'fixed w-full z-50 transition-all duration-300',
-      isScrolled ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
-    )}
-      // className={`fixed w-full z-50 transition-all duration-300 ${
-      //   isScrolled ? 'bg-gray-900 shadow-lg' : 'bg-transparent'
-      // }`}
+    <motion.nav
+      className={cn(
+        'fixed w-full z-50 transition-all duration-300',
+        isScrolled ? 'bg-gray-900 shadow-xl' : 'bg-transparent'
+      )}
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -31,8 +28,8 @@ const Navbar = () => {
         <a href="#" className="text-2xl font-bold text-blue-300 transition duration-300">Vehbi</a>
         <div className="hidden md:flex space-x-8">
           {['About', 'Projects', 'Contact'].map((item) => (
-            <a 
-              key={item} 
+            <a
+              key={item}
               href={`#${item.toLowerCase()}`}
               className="hover:text-blue-400 transition duration-300"
             >

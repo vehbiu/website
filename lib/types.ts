@@ -1,4 +1,27 @@
 export interface Repository {
+    name: string;
+    description: string;
+    homepage: string;
+    html_url: string;
+    stargazers_count: number;
+    language: string;
+    fork: boolean;
+    archived: boolean;
+    topics: string[];
+  }
+  
+export interface Project {
+    title: string;
+    description: string;
+    language: string;
+    url: string;
+    gh: string;
+    topics: string[];
+    stars?: number;
+  }
+  
+
+/* export interface Repository {
     id: number;
     node_id: string;
     name: string;
@@ -103,4 +126,4 @@ export interface Repository {
     open_issues: number;
     watchers: number;
     default_branch: string;
-}
+} */

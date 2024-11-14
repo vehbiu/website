@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import contact from '@/data/contact';
 import { MotionDiv, MotionH1, MotionP } from '../motion';
 import Link from 'next/link';
-import HeroSVG from './HeroSVG';
+import HeroSVG from './hero-svg';
 
 const Hero = () => {
   return (
