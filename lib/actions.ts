@@ -1,10 +1,8 @@
 "use server";
 import "server-only";
 
-// curl 'https://challenges.cloudflare.com/turnstile/v0/siteverify' --data 'secret=verysecret&response=<RESPONSE>'
 export async function verifyCaptcha(response: string): Promise<boolean> {
-    // const url = `https://challenges.cloudflare.com/turnstile/v0/siteverify?secret=${process.env.TURNSTILE_SECRET_KEY!}&response=${response}`;
-    console.log("Checking captcha response:", response);
+    // console.log("Checking captcha response:", response);
 
     try {
         const resp = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -26,6 +24,9 @@ export async function verifyCaptcha(response: string): Promise<boolean> {
     }
 }
 
+const SUBMIT_RETRY_DELAY = 5000;
+const SUBMIT_RETRY_AMOUNT = 3;
+
 export async function submitContactForm(formData: { name: string; email: string; message: string }, captcha: string) {
     const verified = await verifyCaptcha(captcha);
     if (!verified) {
@@ -41,27 +42,33 @@ export async function submitContactForm(formData: { name: string; email: string;
         color: 0x00ff00, // Green
     };
 
-    try {
-        const response = await fetch(process.env.DISCORD_WEBHOOK_URL!, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: "Contact Form",
-                content: "@everyone",
-                embeds: [embed]
-            }),
-        });
+    let resp: { success: boolean; message?: string; error?: string; } = { success: false };
 
-        if (!response.ok) {
-            throw new Error("Failed to send message to Discord");
+    for (let i = 0; i < SUBMIT_RETRY_AMOUNT; i++) {
+        try {
+            const response = await fetch(process.env.DISCORD_WEBHOOK_URL!, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: "Contact Form",
+                    content: "@everyone",
+                    embeds: [embed]
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to send message: ${response.statusText}`);
+            }
+
+            resp =  { success: true, message: "Message sent successfully" };
+            break;
+        } catch (error: unknown) {
+            const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
+            resp = { success: false, error: errorMessage };
         }
-
-        return { success: true, message: "Message sent successfully" };
-    } catch (error: unknown) {
-        const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
-        console.error("Error sending message to Discord:", error);
-        return { success: false, error: errorMessage };
     }
+
+    return resp;
 }
