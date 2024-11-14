@@ -6,7 +6,7 @@ import ProjectList from '@/components/projects/project-list';
 import Contact from '@/components/home/contact';
 import { fetchGitHubProjects } from '@/lib/utils';
 
-export async function HomePage() {
+export default async function HomePage() {
   const projects = await fetchGitHubProjects();
   return (
     <div className="min-h-screen">
@@ -17,6 +17,3 @@ export async function HomePage() {
     </div>
   );
 };
-
-
-export default HomePage;
