@@ -49,7 +49,7 @@ export async function fetchGitHubProjects(): Promise<Project[]> {
             topics: item.topics.filter(topic => topic.length > 3 && !item.language.toLowerCase().includes(topic.toLowerCase())).slice(0, 2),
             stars: item.stargazers_count > 3 ? item.stargazers_count : undefined,
         }));
-    } catch (_: unknown) {
+    } catch {
         return [];
     }
 };
