@@ -45,9 +45,9 @@ const Navbar = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
-            <button className="px-6 py-2 bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-900 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
+            {/* <button className="px-6 py-2 bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-900 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
               Resume
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
