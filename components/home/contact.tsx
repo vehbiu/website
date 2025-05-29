@@ -1,10 +1,13 @@
 "use client";
-import React, { createElement, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
 import contact from "@/data/contact";
-import { submitContactForm } from "@/lib/actions";
-import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile'
+import React, { createElement, useRef, useState } from "react";
+
 import { cn } from "@/lib/utils";
+import { Send } from 'lucide-react';
+import { submitContactForm } from "@/lib/actions";
+import { motion, AnimatePresence } from "framer-motion";
+import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -62,38 +65,48 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-800">
-      <div className="container px-6 mx-auto">
-        <motion.h2
-          className="mb-12 text-4xl font-bold text-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Get in Touch
-        </motion.h2>
-        <div className="grid gap-12 md:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+    <section id="contact" className="py-24 bg-slate-800/50">
+      <div className="mx-auto px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h2
+            className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="mb-4 text-2xl font-semibold">Contact Information</h3>
-            <p className="mb-6">Feel free to reach out if you have any questions or just want to connect!</p>
-            <div className="space-y-4">
-              {contact.map((item) => (
-                <div key={item.name} className="flex items-center">
-                  {createElement(item.icon, { size: 24, className: "mr-4 text-indigo-400" })}
-                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="transition duration-300 hover:text-indigo-400">{item.name}</a>
+            Let's Build Something Amazing
+          </motion.h2>
+          
+          <p className="text-xl text-slate-300 mb-12 leading-relaxed">
+            I'm always excited to collaborate on innovative projects and explore new opportunities. 
+            Whether you have a project in mind or just want to chat about technology, I'd love to hear from you.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {contact.map((item) => (
+              <a
+                key={item.name}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-8 bg-slate-700/30 backdrop-blur-sm border border-slate-600/30 rounded-2xl hover:border-emerald-400/30 hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="p-4 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {createElement(item.icon, { size: 32, className: 'text-emerald-400' })}
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{item.name}</h3>
+                  <p className="text-slate-400 text-sm">Get in touch</p>
                 </div>
-              ))}
-            </div>
-          </motion.div>
-          <div className="relative">
+              </a>
+            ))}
+          </div>
+
+          <div className="relative bg-slate-700/30 backdrop-blur-sm border border-slate-600/30 rounded-2xl p-8">
             <AnimatePresence>
               {isSubmitted ? (
                 <motion.div
-                  className="absolute inset-0 flex items-center justify-center bg-gray-800 rounded-md"
+                  className="absolute inset-0 flex items-center justify-center bg-slate-700/30 backdrop-blur-sm rounded-2xl"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
@@ -101,7 +114,7 @@ const Contact = () => {
                 >
                   <div className="text-center">
                     <motion.h3
-                      className="mb-2 text-2xl font-bold text-indigo-400"
+                      className="mb-2 text-2xl font-bold text-emerald-400"
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.2, duration: 0.5 }}
@@ -109,7 +122,7 @@ const Contact = () => {
                       Thank you! 🎉
                     </motion.h3>
                     <motion.p
-                      className="text-lg"
+                      className="text-lg text-slate-300"
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.4, duration: 0.5 }}
@@ -124,9 +137,11 @@ const Contact = () => {
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
+                  className="space-y-6"
                 >
-                  <div className="mb-4">
-                    <label htmlFor="name" className="block mb-2 text-sm font-medium">Name</label>
+                  <h3 className="text-2xl font-bold text-white mb-6">Quick Message</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
                     <input
                       type="text"
                       id="name"
@@ -135,92 +150,92 @@ const Contact = () => {
                       autoComplete="off"
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Your Name"
+                      className="w-full px-4 py-3 bg-slate-600/50 border border-slate-500/30 rounded-xl text-white placeholder-slate-400 focus:border-emerald-400 focus:outline-none transition-colors duration-300"
                     />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block mb-2 text-sm font-medium">Preferred Contact Method</label>
-                    <div className="flex items-center justify-between bg-gray-700 rounded-lg">
-                      <button
-                        type="button"
-                        onClick={() => setFormData({ ...formData, contactMethod: "email" })}
-                        className={cn(
-                          "flex-1 py-2 text-sm font-medium rounded-l-lg transition-colors duration-200",
-                          formData.contactMethod === "email" && "bg-indigo-600 text-white",
-                          formData.contactMethod !== "email" && "bg-transparent text-gray-300 hover:bg-gray-600"
-                        )}
-                      >
-                        Email
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setFormData({ ...formData, contactMethod: "other" })}
-                        className={cn(
-                          "flex-1 py-2 text-sm font-medium rounded-r-lg transition-colors duration-200",
-                          formData.contactMethod === "other" && "bg-indigo-600 text-white",
-                          formData.contactMethod !== "other" && "bg-transparent text-gray-300 hover:bg-gray-600"
-                        )}
-                      >
-                        Other
-                      </button>
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between bg-slate-600/50 rounded-xl border border-slate-500/30">
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, contactMethod: "email" })}
+                          className={cn(
+                            "flex-1 py-3 text-sm font-medium rounded-l-xl transition-colors duration-300",
+                            formData.contactMethod === "email" && "bg-emerald-600 text-white",
+                            formData.contactMethod !== "email" && "bg-transparent text-slate-300 hover:bg-slate-700/50"
+                          )}
+                        >
+                          Email
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, contactMethod: "other" })}
+                          className={cn(
+                            "flex-1 py-3 text-sm font-medium rounded-r-xl transition-colors duration-300",
+                            formData.contactMethod === "other" && "bg-emerald-600 text-white",
+                            formData.contactMethod !== "other" && "bg-transparent text-slate-300 hover:bg-slate-700/50"
+                          )}
+                        >
+                          Other
+                        </button>
+                      </div>
                     </div>
                   </div>
+
                   {formData.contactMethod === "other" && (
-                    <div className="mb-4">
-                      <label htmlFor="platform" className="block mb-2 text-sm font-medium">Platform Name</label>
-                      <input
-                        type="text"
-                        id="platform"
-                        name="platform"
-                        value={formData.platform}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      />
-                    </div>
-                  )}
-                  <div className="mb-4">
-                    <label htmlFor="identifier" className="block mb-2 text-sm font-medium">
-                      {formData.contactMethod === "email" ? "Email" : "Platform Identifier"}
-                    </label>
                     <input
-                      type={formData.contactMethod === "email" ? "email" : "text"}
-                      id="identifier"
-                      name="identifier"
-                      value={formData.identifier}
+                      type="text"
+                      id="platform"
+                      name="platform"
+                      value={formData.platform}
                       onChange={handleChange}
-                      autoComplete="off"
                       required
-                      className="w-full px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Platform Name"
+                      className="w-full px-4 py-3 bg-slate-600/50 border border-slate-500/30 rounded-xl text-white placeholder-slate-400 focus:border-emerald-400 focus:outline-none transition-colors duration-300"
                     />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="message" className="block mb-2 text-sm font-medium">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      autoComplete="off"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      className="w-full px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    ></textarea>
-                  </div>
+                  )}
+
+                  <input
+                    type={formData.contactMethod === "email" ? "email" : "text"}
+                    id="identifier"
+                    name="identifier"
+                    value={formData.identifier}
+                    onChange={handleChange}
+                    autoComplete="off"
+                    required
+                    placeholder={formData.contactMethod === "email" ? "Your Email" : "Platform Identifier"}
+                    className="w-full px-4 py-3 bg-slate-600/50 border border-slate-500/30 rounded-xl text-white placeholder-slate-400 focus:border-emerald-400 focus:outline-none transition-colors duration-300"
+                  />
+
+                  <textarea
+                    id="message"
+                    name="message"
+                    autoComplete="off"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={4}
+                    placeholder="Your Message"
+                    className="w-full px-4 py-3 bg-slate-600/50 border border-slate-500/30 rounded-xl text-white placeholder-slate-400 focus:border-emerald-400 focus:outline-none transition-colors duration-300 resize-none"
+                  ></textarea>
+
                   {error && (
-                    <div className="p-2 mb-4 text-red-500 bg-red-100 border border-red-400 rounded">
+                    <div className="p-4 text-red-400 bg-red-900/20 border border-red-400/30 rounded-xl">
                       {error}
                     </div>
                   )}
+
                   <Turnstile
                     siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
                     ref={captchaRef}
                   />
+
                   <button
                     type="submit"
-                    className="px-6 py-3 font-semibold text-white transition duration-300 bg-indigo-600 rounded-md hover:bg-indigo-700"
+                    className="w-full py-4 bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-900 rounded-xl font-semibold hover:shadow-2xl hover:shadow-emerald-400/25 hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
                   >
-                    Send Message
+                    <Send size={20} />
+                    <span>Send Message</span>
                   </button>
                 </motion.form>
               )}

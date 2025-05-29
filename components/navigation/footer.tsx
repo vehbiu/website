@@ -3,7 +3,7 @@ import contact from '@/data/contact';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 py-8">
+        <footer className="bg-slate-900 border-t-2 border-slate-800/80 py-8">
             <div className="container px-6 mx-auto">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">

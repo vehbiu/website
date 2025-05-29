@@ -8,6 +8,7 @@ import { fetchGitHubProjects } from '@/lib/utils';
 
 export default async function HomePage() {
   const projects = await fetchGitHubProjects();
+
   return (
     <div className="min-h-screen">
       <Hero />
