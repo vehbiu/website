@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import contact from '@/data/contact';
 
-import React, { createElement, useState, useEffect } from 'react';
-import { ChevronDown, ArrowRight, MapPin } from 'lucide-react';
+import React, { createElement } from 'react';
 import { MotionDiv, MotionH1, MotionP } from '../motion';
+import { ChevronDown, ArrowRight, MapPin } from 'lucide-react';
 
 const GeometricBackground = () => (
   <div className="absolute inset-0 overflow-hidden">
